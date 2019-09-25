@@ -15,4 +15,17 @@ def MatrixChainMulti(p):
 
 	return s,m
 
-print(MatrixChainMulti([30,35,15,5,10,20,25]))
+def PrintOptimalParens(s,i,j):
+	if i==j:
+		print("A"+str(i))
+	else:
+		print("(")
+		PrintOptimalParens(s,i,s[i][j]-1)
+		PrintOptimalParens(s,s[i][j],j)
+		print(")")
+
+
+s,m = MatrixChainMulti([30,35,15,5,10,20,25])
+print(s)
+PrintOptimalParens(s,0,5)
+
